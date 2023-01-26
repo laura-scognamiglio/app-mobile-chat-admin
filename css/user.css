@@ -1,0 +1,37 @@
+/* *{
+    background-color: #EFE2E2;
+} */
+
+#formUser{
+    width: 100%;
+    /* padding: 1%; */
+    padding-top: 1.5%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    /* padding-top: 20%; */
+    /* position: absolute; */
+
+    /* height: 55px; */
+    /* left: 114px; */
+    /* top: 319px; */
+    /* background: #D9D9D9; */
+    /* border-radius: 20px; */;
+}
+
+#container{
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    
+}
+li{
+    list-style: none;
+}
+button{
+    /* text-decoration: none;
+    width: 5%;
+    height: 55%; */
+}
