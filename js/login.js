@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = {login: login, password: password};
     
         // send a post request to the API with the data
-        const response = await fetch(`http://10.10.63.108:3000/users/auth`, {
+        const response = await fetch(`http://10.10.26.76:3000/users/auth`, {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify(data),
@@ -23,9 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
         const json = await response.json();
+        console.log(json)
         if(json.token) {
+            // console.log('first')
+            console.log(json.token);
             // store the token in local storage
-            localStorage.setItem('token', json.token);
+            sessionStorage.setItem('access_token', json.token);
+            sessionStorage.setItem('refresh_token', json.refresh)
             window.location.href = "http://localhost/app-mobile-chat-admin/admin/adminIndex.php";
         }
     });
