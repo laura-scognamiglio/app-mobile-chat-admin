@@ -9,33 +9,35 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/token.js"></script>
     <script src="../js/api.js"></script>
-    <script src="../js/users.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/message.js"></script>
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="../css/navbar.css">
-    <title>User</title>
+    <title>Message</title>
 </head>
 
 <body>
     <?php include('../navbar.php'); ?>
-    <button id="logout-button">logout</button>
-    <div class="container" id="container">
 
-        <div id="form-container"></div>
+<h1>General chat room</h1>
 
-    </div>
-    <div id="links"></div>
+<div class="container-button-delete">
 
-    <div class="data"></div>
+    <button id="delete-all" class="delete-all">Delete all message from general chat room</button>
+</div>
+
+<div class="container" id="container"></div>
+
+<div class="conatiner-message-from-general"></div>
 
         <div class="pagination">
 
-            <button class="prev" id="prev"><</button>
-            <button class="page-numbers" id="page-numbers"></button>
+            <button class="prev" id="prev">
+                <</button>
+                    <button class="page-numbers" id="page-numbers"></button>
 
-            <button class="next" id="next">></button>
+                    <button class="next" id="next">></button>
         </div>
-
 </body>
 
 </html>

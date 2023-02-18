@@ -9,32 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/token.js"></script>
     <script src="../js/api.js"></script>
-    <script src="../js/users.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/message.js"></script>
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="../css/navbar.css">
-    <title>User</title>
+    <title>Chat from room</title>
 </head>
 
 <body>
     <?php include('../navbar.php'); ?>
-    <button id="logout-button">logout</button>
-    <div class="container" id="container">
-
-        <div id="form-container"></div>
-
-    </div>
-    <div id="links"></div>
-
-    <div class="data"></div>
-
-        <div class="pagination">
-
-            <button class="prev" id="prev"><</button>
-            <button class="page-numbers" id="page-numbers"></button>
-
-            <button class="next" id="next">></button>
-        </div>
 
 </body>
 

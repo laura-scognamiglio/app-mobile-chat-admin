@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
     
         // get the username and password from the form
-        const login = document.getElementById("login").value;
+        const login = document.getElementById("login-input").value;
         const password = document.getElementById("password").value
     
         // create a JSON object with the username and password
         const data = {login: login, password: password};
     
         // send a post request to the API with the data
-        const response = await fetch(`http://10.10.26.76:3000/users/auth`, {
+        const response = await fetch(`http://localhost:3000/users/auth`, {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify(data),
