@@ -1,4 +1,4 @@
-const Token = {
+export const Token = {
     set: (token) => {
       sessionStorage.setItem("access_token", token);
     },
@@ -10,7 +10,7 @@ const Token = {
     }
 };
 
-const refreshToken = {
+export const refreshToken = {
   set: (token) => {
     sessionStorage.setItem("refresh_token", token);
   },

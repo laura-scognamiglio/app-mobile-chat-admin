@@ -1,5 +1,10 @@
+import { API , front } from "./constant.js";
+import Api from "./api.js"
+import { Token, refreshToken } from "./token.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const api = new Api();
+    console.log(api)
 
     api.get({
         route: '/users/signin',
@@ -9,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     })
 
-    fetch(`http://localhost:3000/users/all`)
+    fetch(API + `/users/all`)
         .then(response => response.json())
         .then(data => {
 
@@ -52,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 id: idUser
                             };
 
-                            fetch(`http://localhost:3000/admin/users/${idUser}/update`, {
+                            fetch(API + `/admin/users/${idUser}/update`, {
 
                                     method: 'PATCH',
                                     mode: 'cors',
@@ -86,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 id: idUser
                             };
                             ///users/:id/update/role
-                            fetch(`http://localhost:3000/admin/users/${idUser}/update/role`, {
+                            fetch(API + `/admin/users/${idUser}/update/role`, {
 
                                     method: 'PUT',
                                     mode: 'cors',
