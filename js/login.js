@@ -1,4 +1,4 @@
-import { API , front } from "./constan.js";
+import { API , front } from "./constant.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
