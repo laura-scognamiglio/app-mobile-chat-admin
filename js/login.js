@@ -1,3 +1,5 @@
+import { API , front } from "./constan.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const loginForm = document.getElementById("loginForm");
@@ -12,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = {login: login, password: password};
     
         // send a post request to the API with the data
-        const response = await fetch(`http://10.10.63.108:3000/users/auth`, {
+        const response = await fetch(API + `/users/auth`, {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify(data),
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(json.token) {
             // store the token in local storage
             localStorage.setItem('token', json.token);
-            window.location.href = "http://localhost/app-mobile-chat-admin/admin/adminIndex.php";
+            window.location.href = front + "/app-mobile-chat-admin/admin/adminIndex.php";
         }
     });
 
