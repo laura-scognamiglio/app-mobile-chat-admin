@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
     
         // get the username and password from the form
-        const login = document.getElementById("login").value;
+        const login = document.getElementById("login-input").value;
         const password = document.getElementById("password").value
     
         // create a JSON object with the username and password
@@ -25,7 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
         const json = await response.json();
+        console.log(json)
         if(json.token) {
+            // console.log('first')
+            console.log(json.token);
             // store the token in local storage
             localStorage.setItem('token', json.token);
             window.location.href = front + "/app-mobile-chat-admin/admin/adminIndex.php";

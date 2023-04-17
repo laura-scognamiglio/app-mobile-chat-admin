@@ -1,0 +1,101 @@
+body {
+  background-color: #212529;
+  color: #fff;
+  font-family: serif;
+}
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type="submit"],
+.delete-from-general {
+  width: 100%;
+  background-color: #9471fb;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #6b4ec3;
+}
+
+h1 {
+  text-align: center;
+  color: #9471fb;
+}
+
+.item-class {
+  border-radius: 5px;
+  background-color: #2b3035;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2.5%;
+  margin: 2%;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  column-gap: 2px;
+}
+
+li {
+  list-style: none;
+}
+
+.prev,
+.next {
+  background-color: #9471fb;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.page-numbers {
+  background-color: #212529;
+  text-decoration: none;
+}
+
+.page-numbers button {
+  background-color: #9471fb;
+  text-decoration: none;
+}
+
+.delete-all {
+  background-color: #ff0000;
+  text-decoration: none;
+  border-style: none;
+  width: 20%;
+  background-color: #ff0000;
+  padding: 10px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container-button-delete {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}

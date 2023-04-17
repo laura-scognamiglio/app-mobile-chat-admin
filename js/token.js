@@ -1,14 +1,25 @@
 const Token = {
     set: (token) => {
-      localStorage.setItem("access_token", token);
+      sessionStorage.setItem("access_token", token);
     },
     get: () => {
-      return localStorage.getItem("access_token");
+      return sessionStorage.getItem("access_token");
     },
     remove: () => {
-      localStorage.removeItem("access_token");
+      sessionStorage.removeItem("access_token");
     }
-  };
-  
-  export default Token;
-  
+};
+
+const refreshToken = {
+  set: (token) => {
+    sessionStorage.setItem("refresh_token", token);
+  },
+  get: () => {
+    return sessionStorage.getItem("refresh_token");
+  },
+  remove: () => {
+    sessionStorage.removeItem("refresh_token");
+  }
+};
+  // export default Token;
+  console.log(Token)
