@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/message.js"></script>
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <title>Message</title>
+</head>
+
+<body>
+    <?php include('../navbar.php'); ?>
+
+<h1>General chat room</h1>
+
+<div class="container-button-delete">
+
+    <button id="delete-all" class="delete-all">Delete all message from general chat room</button>
+</div>
+
+<div class="container" id="container"></div>
+
+<div class="conatiner-message-from-general"></div>
+
+        <div class="pagination">
+
+            <button class="prev" id="prev">
+                <</button>
+                    <button class="page-numbers" id="page-numbers"></button>
+
+                    <button class="next" id="next">></button>
+        </div>
+</body>
+
+</html>
