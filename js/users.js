@@ -1,3 +1,7 @@
+import { Api } from "./api.js";
+import { Token, refreshToken } from './tokens.js';
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const api = new Api();
 
@@ -51,7 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 login: loginUpdate,
                                 id: idUser
                             };
-
+                            
+                            
                             fetch(`http://localhost:3000/admin/users/${idUser}/update`, {
 
                                     method: 'PATCH',
@@ -62,16 +67,19 @@ document.addEventListener("DOMContentLoaded", () => {
                                         'refreshToken': refreshToken.get(),
                                         'Content-Type': 'application/json',
                                         'Access-Control-Allow-Origin': '*',
-                                        'Access-Control-Allow-Credentials': 'true'
+                                        'Access-Control-Allow-Credentials': 'true',
+                                        
                                     },
                                 })
                                 .then(response => response.json())
                                 .then(data => console.log(data))
+                                .then(userInfo => console.log(userInfo))
                                 .catch(error => console.error(error));
                         })
                     }
 
                     var inputeUpdateRole = document.getElementsByClassName("update-button-role");
+                   
                     for (let x = 0; x < inputeUpdateRole.length; x++) {
                         const elementRole = inputeUpdateRole[x];
 
@@ -85,10 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                 id_role: newRole,
                                 id: idUser
                             };
+                            debugger
+                            console.log(Token.get(),"sensé etre le tok")
                             ///users/:id/update/role
                             fetch(`http://localhost:3000/admin/users/${idUser}/update/role`, {
 
-                                    method: 'PUT',
+                                    method: 'PATCH',
                                     mode: 'cors',
                                     body: JSON.stringify(data),
                                     headers: {
@@ -96,12 +106,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                         'refreshToken': refreshToken.get(),
                                         'Content-Type': 'application/json',
                                         'Access-Control-Allow-Origin': '*',
-                                        'Access-Control-Allow-Credentials': 'true'
+                                        'Access-Control-Allow-Credentials': 'true',
+                                        'Authorization': 'Bearer ' + Token.get(),
                                     },
                                 })
                                 .then(response => response.json())
-                                .then(data => console.log(data))
-                                .catch(error => console.error(error));
+                                .then(data => console.log(data,"data???user.js"))
+                                .catch(error => console.error(error,"error???user.js"));
 
                         })
 

@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     logoutButton.addEventListener('click', () => {
     // Remove the access token from local storage
-    localStorage.removeItem('access_token');
+    sessionStorage.removeItem('access_token');
     // Redirect the user to the login page or some other appropriate page
-    window.location.href = "http://localhost/app-mobile-chat-admin/";
+    window.location.href = "http://localhost:8888/app-mobile-chat-admin/";
     });
     
 })

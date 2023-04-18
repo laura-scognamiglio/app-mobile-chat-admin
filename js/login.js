@@ -1,4 +1,6 @@
 import { API , front } from "./constant.js";
+import { Api } from "./api.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -28,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(json);
         if(json.token) {
             // console.log('first')
-            console.log(json.token);
+            console.log(json.token, 'le token de admin?');
             // store the token in local storage
-            localStorage.setItem('token', json.token);
+            sessionStorage.setItem('token', json.token);
             window.location.href = front + "/app-mobile-chat-admin/admin/adminIndex.php";
         }
     });
