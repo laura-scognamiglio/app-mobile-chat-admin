@@ -1,7 +1,10 @@
-export class Api {
+import { API, front } from "./constant.js"
+import { Token, refreshToken } from "./token.js";
+
+export default class Api{
     constructor() {
-      this.route = 'http://localhost:3000';
-      this.call = this.call.bind(this);
+        this.route = API;
+        this.call = this.call.bind(this);
     }
   
     get = async function (params) {

@@ -1,3 +1,5 @@
+import { API , front } from "./constant.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const api = new Api();
 
@@ -14,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     deleteAll.addEventListener("click", () => {
 
         if (confirm("Are you sure you want to delete all General Chat messages?")) {
-            fetch(`http://localhost:3000/admin/supress`, {
+            fetch(API + `/admin/supress`, {
                     method: 'GET',
                     headers: {
                         'token': Token.get(),
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    fetch(`http://localhost:3000/chat`, {
+    fetch(API + `/chat`, {
             method: 'GET',
             headers: {
                 'token': Token.get(),
@@ -71,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         idMessage = deleteButton.value
                         idMainRoom = '0';
 
-                        fetch(`http://localhost:3000/admin/delete/${idMainRoom}/${idMessage}`, {
+                        fetch(API + `/admin/delete/${idMainRoom}/${idMessage}`, {
                                 method: 'GET',
                                 mode: 'cors',
                                 headers: {

@@ -1,12 +1,14 @@
 export const Token = {
     set: (token) => {
-      sessionStorage.setItem("access_token", token);
+      console.log(token)
+      sessionStorage.setItem("token", token);
     },
     get: () => {
-      return sessionStorage.getItem("access_token");
+      console.log('sesh', sessionStorage)
+      return sessionStorage.getItem("token");
     },
     remove: () => {
-      sessionStorage.removeItem("access_token");
+      sessionStorage.removeItem("token");
     }
 };
 

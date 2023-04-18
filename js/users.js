@@ -1,6 +1,6 @@
-import { Api } from "./api.js";
-import { Token, refreshToken } from './tokens.js';
-
+import { API , front } from "./constant.js";
+import Api from "./api.js"
+import { Token, refreshToken } from "./token.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const api = new Api();
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     })
 
-    fetch(`http://localhost:3000/users/all`)
+    fetch(API + `/users/all`)
         .then(response => response.json())
         .then(data => {
 
@@ -30,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 let paginatedData = data.slice(start, end);
 
                 paginatedData.forEach(item => {
-
-
                     const div = document.createElement('div');
                     div.setAttribute('class', 'item-class');
                     div.innerHTML += ` <label for="update-login" class="form-label">Login user</label>`
@@ -55,9 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 login: loginUpdate,
                                 id: idUser
                             };
-                            
-                            
-                            fetch(`http://localhost:3000/admin/users/${idUser}/update`, {
+
+                            fetch(API + `/admin/users/${idUser}/update`, {
 
                                     method: 'PATCH',
                                     mode: 'cors',
@@ -93,17 +90,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                 id_role: newRole,
                                 id: idUser
                             };
-                            debugger
-                            console.log(Token.get(),"sensé etre le tok")
+
+                            const bodyData = JSON.stringify(data)
+
                             ///users/:id/update/role
                             fetch(`http://localhost:3000/admin/users/${idUser}/update/role`, {
-
                                     method: 'PATCH',
                                     mode: 'cors',
-                                    body: JSON.stringify(data),
+                                    body: bodyData,
                                     headers: {
-                                        'token': Token.get(),
-                                        'refreshToken': refreshToken.get(),
+                                        // 'token': Token.get(),
+                                        // 'refreshToken': refreshToken.get(),
                                         'Content-Type': 'application/json',
                                         'Access-Control-Allow-Origin': '*',
                                         'Access-Control-Allow-Credentials': 'true',
