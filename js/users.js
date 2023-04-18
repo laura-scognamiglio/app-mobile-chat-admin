@@ -4,7 +4,6 @@ import { Token, refreshToken } from "./token.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const api = new Api();
-    console.log(api)
 
     api.get({
         route: '/users/signin',
@@ -31,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 let paginatedData = data.slice(start, end);
 
                 paginatedData.forEach(item => {
-
-
                     const div = document.createElement('div');
                     div.setAttribute('class', 'item-class');
                     div.innerHTML += ` <label for="update-login" class="form-label">Login user</label>`
@@ -90,15 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                 id_role: newRole,
                                 id: idUser
                             };
-                            ///users/:id/update/role
-                            fetch(API + `/admin/users/${idUser}/update/role`, {
 
-                                    method: 'PUT',
+                            const bodyData = JSON.stringify(data)
+
+                            ///users/:id/update/role
+                            fetch(`http://localhost:3000/admin/users/${idUser}/update/role`, {
+                                    method: 'PATCH',
                                     mode: 'cors',
-                                    body: JSON.stringify(data),
+                                    body: bodyData,
                                     headers: {
-                                        'token': Token.get(),
-                                        'refreshToken': refreshToken.get(),
+                                        // 'token': Token.get(),
+                                        // 'refreshToken': refreshToken.get(),
                                         'Content-Type': 'application/json',
                                         'Access-Control-Allow-Origin': '*',
                                         'Access-Control-Allow-Credentials': 'true'

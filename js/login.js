@@ -24,13 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 'Access-Control-Allow-Credentials': 'true'
             }
         });
+        console.log('response', response)
         const json = await response.json();
-        console.log(json);
+        console.log('json', json);
         if(json.token) {
             // console.log('first')
-            console.log(json.token);
+            console.log('LA',json.token);
             // store the token in local storage
-            localStorage.setItem('token', json.token);
+            sessionStorage.setItem('token', json.token);
+            sessionStorage.setItem('refresh_token', json.refresh);
             window.location.href = front + "/app-mobile-chat-admin/admin/adminIndex.php";
         }
     });
