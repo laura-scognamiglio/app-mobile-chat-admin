@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					div.innerHTML += `<input class="update-login" type="text" id="update-login" value='${item.login}' />`;
 					div.innerHTML += `<button type="submit" class="update-button-login btn btn-primary mb-3" id="update-button-login" value="${item.id}">Update login</button>`;
 					div.innerHTML += ` <label for="update-role" class="form-label">Role user / admin</label>`
-					div.innerHTML += `<input class="update-role" type="text" id="update-role" value='${item.id_role}' />`;
+					div.innerHTML += `<input class="update-role" type="text" id="update-role" data-index="${item.id}" value='${item.id_role}' />`;
 					div.innerHTML += `<button type="submit" class="update-button-role btn btn-primary mb-3" id="update-button-role" value="${item.id}">Update role</button>`;
 					container.appendChild(div);
 
@@ -74,18 +74,22 @@ document.addEventListener("DOMContentLoaded", () => {
 					}
 
 					var inputeUpdateRole = document.getElementsByClassName("update-button-role");
+					// console.log('tt', inputeUpdateRole)
+					var id_role;
 					for (let x = 0; x < inputeUpdateRole.length; x++) {
 						const elementRole = inputeUpdateRole[x];
-
+						let newRole = document.getElementsByClassName("update-role")
+						newRole = [...newRole];
 						elementRole.addEventListener("click", () => {
-							//Event update role
-							const newRole = document.getElementById("update-role").value
-							console.log('new role', newRole)
 							const idUser = elementRole.value
-							console.log(idUser)
+							newRole.forEach(roleNew => {
+								if(roleNew.dataset.index === idUser) {
+									id_role = roleNew.value
+								}
+							})
 							const data = {
 								id_role_admin: 2,
-								id_role: newRole,
+								id_role: id_role,
 								id: idUser
 							};
 
