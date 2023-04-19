@@ -1,5 +1,5 @@
 import { API , front } from "./constant.js";
-import { Api } from "./api.js";
+import  Api  from "./api.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {

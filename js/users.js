@@ -99,8 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     mode: 'cors',
                                     body: bodyData,
                                     headers: {
-                                        // 'token': Token.get(),
-                                        // 'refreshToken': refreshToken.get(),
+                                        'token': Token.get(),
+                                        'refreshToken': refreshToken.get(),
                                         'Content-Type': 'application/json',
                                         'Access-Control-Allow-Origin': '*',
                                         'Access-Control-Allow-Credentials': 'true',
@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 .then(response => response.json())
                                 .then(data => console.log(data,"data???user.js"))
                                 .catch(error => console.error(error,"error???user.js"));
+                                
 
                         })
 
