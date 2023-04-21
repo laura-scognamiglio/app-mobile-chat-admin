@@ -1,6 +1,6 @@
 import { API , front } from "./constant.js";
 import Api from "./api.js"
-import { Token, refreshToken } from "./token.js";
+import { Token, refreshToken, id_admin } from "./token.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	const api = new Api();
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 								}
 							})
 							const data = {
-								id_role_admin: 2,
+								id_role_admin: id_admin.get(),
 								id_role: id_role,
 								id: idUser
 							};

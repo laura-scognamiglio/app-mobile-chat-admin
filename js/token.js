@@ -23,5 +23,15 @@ export const refreshToken = {
     sessionStorage.removeItem("refresh_token");
   }
 };
-  // export default Token;
-  console.log(Token)
+
+export const id_admin = {
+  set: (id_role) => {
+    sessionStorage.setItem("id_admin", id_role);
+  },
+  get: () => {
+    return sessionStorage.getItem("id_admin");
+  },
+  remove: () => {
+    sessionStorage.removeItem("id_admin");
+  }
+};
