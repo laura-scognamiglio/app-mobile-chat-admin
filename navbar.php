@@ -17,7 +17,7 @@
       <a href="../admin/adminMessageGeneral.php">General chat</a>
       <a href="../admin/adminChatRoom.php">Chat from room</a>
       <a href="../admin/adminUser.php">Users</a>
-      <a href="../admin/adminRoom.php">Room</a>
+      <a href="../admin/adminRoom.php">Rooms</a>
       <button id="logout-button">logout</button>
     </div>
     <div class="toggle">&#9776;</div>

@@ -10,6 +10,7 @@
     <script type="module" src="../js/token.js"></script>
     <script type="module" src="../js/api.js"></script>
     <script type="module" src="../js/logout.js"></script>
+    
     <script type="module" src="../js/message.js"></script>
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="../css/navbar.css">
