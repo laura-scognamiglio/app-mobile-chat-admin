@@ -19,7 +19,7 @@
 <body>
     <?php include('../navbar.php'); ?>
 
-<h1>General chat room</h1>
+<h1>/h1>
 
 <div class="container-button-delete">
 
