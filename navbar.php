@@ -14,8 +14,7 @@
 <nav>
     <div class="logo">Dashboard</div>
     <div class="menu">
-      <a href="../admin/adminMessageGeneral.php">General chat</a>
-      <a href="../admin/adminChatRoom.php">Chat from room</a>
+      <a href="../admin/adminMessage.php">Messages by Rooms</a>
       <a href="../admin/adminUser.php">Users</a>
       <a href="../admin/adminRoom.php">Rooms</a>
       <button id="logout-button">logout</button>

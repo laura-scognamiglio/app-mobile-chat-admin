@@ -12,12 +12,13 @@
     <script type="module" src="../js/logout.js"></script>
     
     <script type="module" src="../js/message.js"></script>
-    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/navbar.css">
-    <title>Chat from room</title>
+    <title>ADMIN MESSAGES DETAILS</title>
 </head>
 
 <body>
+    <H1>WOOOOOWWWWWW</H1>
     <?php include('../navbar.php'); ?>
 
 </body>

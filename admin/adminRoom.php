@@ -15,6 +15,7 @@
 
 <body>
 <?php include('../navbar.php'); ?>
+
     <div class="container" id="container">
 
         <div id="form-container"></div>

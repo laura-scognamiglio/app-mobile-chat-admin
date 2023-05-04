@@ -1,3 +1,7 @@
+import { API, front } from "./constant.js";
+import Api from "./api.js"
+import { Token, refreshToken, id_admin } from "./token.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const api = new Api();
 
@@ -8,5 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     })
+    // recuperer les params 
+    const queryString = window.location.search;
+    console.log(queryString);
 
 })

@@ -11,7 +11,7 @@
     <script type="module" src="../js/api.js"></script>
     <script type="module" src="../js/logout.js"></script>
     <script type="module" src="../js/message.js"></script>
-    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <title>Message</title>
 </head>
@@ -19,16 +19,18 @@
 <body>
     <?php include('../navbar.php'); ?>
 
-<h1>/h1>
+<h1>Messages By Rooms</h1>
 
 <div class="container-button-delete">
 
-    <button id="delete-all" class="delete-all">Delete all message from general chat room</button>
+
+    <button id="delete-all" class="delete-all">Delete all message from general chat room</button> 
+
 </div>
 
-<div class="container" id="container"></div>
-
-<div class="conatiner-message-from-general"></div>
+<div class="container" id="container">
+    <div class="conatiner-message-from-general"></div>
+</div>
 
         <div class="pagination">
 
