@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					}
 				});
 			}
-
+			//pagination
 			paginationData(currentPage);
 
 			document.querySelector("#next").addEventListener("click", () => {

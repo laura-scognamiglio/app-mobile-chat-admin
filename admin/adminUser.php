@@ -11,7 +11,7 @@
     <script type="module" src="../js/api.js"></script>
     <script type="module" src="../js/users.js"></script>
     <script type="module" src="../js/logout.js"></script>
-    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <title>User</title>
 </head>
