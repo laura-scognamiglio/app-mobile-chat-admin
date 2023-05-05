@@ -3,7 +3,6 @@ import Api from "./api.js"
 import { Token, refreshToken, id_admin } from "./token.js";
 document.addEventListener("DOMContentLoaded", () => {
 
-	console.log("Messages");
 	fetch(API + `/rooms/`, {
 		method: 'GET',
 		mode: 'cors',
@@ -42,28 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
 							console.log(idRoom);
 
 							window.location.href = front + `/app-mobile-chat-admin/admin/adminMessagesDetails.php?id=${idRoom}`;
-							// 
-							// '/player_detail?username=' + name
-							// const data = {
-							// 	name: UpdateRoomName,
-							// };
-
-							// fetch(API + `/admin/rooms/${idRoom}/update`, {
-
-							//     method: 'PATCH',
-							//     mode: 'cors',
-							//     body: JSON.stringify(data),
-							//     headers: {
-							//         'token': Token.get(),	
-							//         'refreshToken': refreshToken.get(),
-							//         'Content-Type': 'application/json',
-							//         'Access-Control-Allow-Origin': '*',
-							//         'Access-Control-Allow-Credentials': 'true'
-							//     },
-							// })
-							// .then(response => response.json())
-							// .then(data => console.log(data))
-							// .catch(error => console.error(error));
 
 						})
 

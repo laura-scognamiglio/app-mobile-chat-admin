@@ -10,7 +10,6 @@
     <script type="module" src="../js/token.js"></script>
     <script type="module" src="../js/api.js"></script>
     <script type="module" src="../js/logout.js"></script>
-    
     <script type="module" src="../js/messagesDetails.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/navbar.css">
@@ -21,7 +20,14 @@
     <?php include('../navbar.php'); ?>
     <H1>WOOOOOWWWWWW</H1>
     <div class="container" id="container">
-        <div class="conatiner-message-from-general"></div>
+        <!-- <div class="box" id="box">
+            <p>Daouda</p>
+            <p>le 23/04/2021</p>
+            <p>NIKE LES BTS ET LA KAPOP DE MERDE ALLEZ LOM</p>
+        </div>
+        <div class= >
+            <button type="submit" value="id">delete</button>
+        </div>   -->
     </div>
     <div class="pagination">
         <button class="prev" id="prev"><</button>

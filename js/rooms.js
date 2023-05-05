@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 mode: 'cors',
                                 body: JSON.stringify(data),
                                 headers: {
-                                    'token': Token.get(),
+                                    'token1': Token.get(),
                                     'refreshToken': refreshToken.get(),
                                     'Content-Type': 'application/json',
                                     'Access-Control-Allow-Origin': '*',
