@@ -11,15 +11,24 @@
     <script type="module" src="../js/api.js"></script>
     <script type="module" src="../js/logout.js"></script>
     
-    <script type="module" src="../js/message.js"></script>
+    <script type="module" src="../js/messagesDetails.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <title>ADMIN MESSAGES DETAILS</title>
 </head>
 
-<body>
-    <H1>WOOOOOWWWWWW</H1>
+<body>  
     <?php include('../navbar.php'); ?>
+    <H1>WOOOOOWWWWWW</H1>
+    <div class="container" id="container">
+        <div class="conatiner-message-from-general"></div>
+    </div>
+    <div class="pagination">
+        <button class="prev" id="prev"><</button>
+        <button class="page-numbers" id="page-numbers"></button>
+        <button class="next" id="next">></button>
+    </div>
+
 
 </body>
 

@@ -1,76 +1,77 @@
-import { API , front } from "./constant.js";
+import { API, front } from "./constant.js";
 import Api from "./api.js"
 import { Token, refreshToken, id_admin } from "./token.js";
 document.addEventListener("DOMContentLoaded", () => {
-    
-    console.log("Messages");
-    fetch(API + `/rooms/`, {
+
+	console.log("Messages");
+	fetch(API + `/rooms/`, {
 		method: 'GET',
-		mode: 'cors',})
+		mode: 'cors',
+	})
 
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
+		.then(response => response.json())
+		.then(data => {
+			console.log(data);
 
-            const itemsPerPage = 5;
+			const itemsPerPage = 5;
 			let currentPage = 1;
 			const pages = Math.ceil(data.length / itemsPerPage);
 
 			const paginationData = (page) => {
 
-                document.querySelector(".container").innerHTML = "";
+				document.querySelector(".container").innerHTML = "";
 				let start = (page - 1) * itemsPerPage;
 				let end = start + itemsPerPage;
 				let paginatedData = data.slice(start, end);
 
-                paginatedData.forEach(item => {
+				paginatedData.forEach(item => {
 					const div = document.createElement('div');
-					div.setAttribute('class', 'item-class');  
-					div.innerHTML += `<input class="roomName" type="submit" id="roomName" value='${item.id}'  />`;
+					div.setAttribute('class', 'item-class');
+					// voir comment get l'id et non le name de la room avec un button ? 
+					div.innerHTML += `<button class="roomName" type="submit" id="roomName" value="${item.id}"/>${item.name}</button>`;
 					container.appendChild(div);
 
-                    var button = document.getElementsByClassName("roomName")
-					for (let i = 0; i < button.length; i++){
-						//Boucle les boutons avec l'id de l'utilisateurs en value
+					var button = document.getElementsByClassName("roomName")
+					for (let i = 0; i < button.length; i++) {
+						//Boucle les boutons avec l'id de la room en value
 						const element = button[i];
 
-                        element.addEventListener("click", () => {
+						element.addEventListener("click", () => {
 							//Event update login users
-							const UpdateRoomName = document.getElementById("roomName").value
 							const idRoom = element.value
-                            console.log(idRoom);
+							console.log(idRoom);
 
-                            window.location.href=front + "/app-mobile-chat-admin/admin/adminMessagesDetails/?rooms"+ idRoom +".php"; 
-                            // 
-                            // '/player_detail?username=' + name
+							window.location.href = front + `/app-mobile-chat-admin/admin/adminMessagesDetails.php?id=${idRoom}`;
+							// 
+							// '/player_detail?username=' + name
 							// const data = {
 							// 	name: UpdateRoomName,
-                            // };
-                            
-                            // fetch(API + `/admin/rooms/${idRoom}/update`, {
+							// };
 
-                            //     method: 'PATCH',
-                            //     mode: 'cors',
-                            //     body: JSON.stringify(data),
-                            //     headers: {
-                            //         'token': Token.get(),
-                            //         'refreshToken': refreshToken.get(),
-                            //         'Content-Type': 'application/json',
-                            //         'Access-Control-Allow-Origin': '*',
-                            //         'Access-Control-Allow-Credentials': 'true'
-                            //     },
-                            // })
-                            // .then(response => response.json())
-                            // .then(data => console.log(data))
-                            // .catch(error => console.error(error));
+							// fetch(API + `/admin/rooms/${idRoom}/update`, {
 
-                        })
-                        
-                    }
-                })     
-            }
-            //pagination
-            paginationData(currentPage);
+							//     method: 'PATCH',
+							//     mode: 'cors',
+							//     body: JSON.stringify(data),
+							//     headers: {
+							//         'token': Token.get(),	
+							//         'refreshToken': refreshToken.get(),
+							//         'Content-Type': 'application/json',
+							//         'Access-Control-Allow-Origin': '*',
+							//         'Access-Control-Allow-Credentials': 'true'
+							//     },
+							// })
+							// .then(response => response.json())
+							// .then(data => console.log(data))
+							// .catch(error => console.error(error));
+
+						})
+
+					}
+				})
+			}
+			//pagination
+			paginationData(currentPage);
 
 			document.querySelector("#next").addEventListener("click", () => {
 
@@ -111,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-        })
+		})
 })
 
 
