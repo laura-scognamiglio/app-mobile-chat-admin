@@ -19,7 +19,7 @@
 
         <div id="form-container"></div>
 
-    <div>
+    </div>
     <div id="links"></div>
     <div class="data"></div>
 
