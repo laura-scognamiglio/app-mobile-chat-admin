@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		.then(response => response.json())
 		.then(data => {
-			console.log(data);
+			console.log('message.js -> renvoit les rooms id + name ', data);
 
 			const itemsPerPage = 5;
 			let currentPage = 1;
@@ -28,22 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
 					div.setAttribute('class', 'item-class');
 					// voir comment get l'id et non le name de la room avec un button ? 
 					div.innerHTML += `<button class="roomName" type="submit" id="roomName" value="${item.id}"/>${item.name}</button>`;
+					
 					container.appendChild(div);
 
 					var button = document.getElementsByClassName("roomName")
 					for (let i = 0; i < button.length; i++) {
 						//Boucle les boutons avec l'id de la room en value
 						const element = button[i];
-
 						element.addEventListener("click", () => {
 							//Event update login users
 							const idRoom = element.value
-							console.log(idRoom);
-
-							window.location.href = front + `/app-mobile-chat-admin/admin/adminMessagesDetails.php?id=${idRoom}`;
-
+							const nameRoom = element.innerHTML
+								window.location.href = front + `/app-mobile-chat-admin/admin/adminMessagesDetails.php?id=${idRoom}&name=${nameRoom}`;
 						})
-
 					}
 				})
 			}
