@@ -15,12 +15,16 @@
 
 <body>
 <?php include('../navbar.php'); ?>
-
+<div class="create-block item-class">
+        <label for="create-room" class="form-label">Create Room</label>
+        <input class="create-room" type="text" id="create-room-name" placeholder="Room's name">
+        <button type="submit" class="create-button" id="create-button">Create room</button>
+    </div>
     <div class="container" id="container">
 
         <div id="form-container"></div>
 
-    <div>
+    </div>
     <div id="links"></div>
     <div class="data"></div>
 
