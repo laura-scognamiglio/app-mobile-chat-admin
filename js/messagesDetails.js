@@ -26,7 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
 
-          const itemsPerPage = 5;
+            console.log(idRoom);
+            const itemsPerPage = 5;
             let currentPage = 1;
             const pages = Math.ceil(data.length / itemsPerPage);
 
@@ -38,19 +39,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 let paginatedData = data.slice(start, end);
 
                 paginatedData.forEach(item => {
-                
+
                     const parentDiv = document.createElement('div');
                     parentDiv.setAttribute('class', 'parent-box');
 
                     const div = document.createElement('div');
                     div.setAttribute('class', 'box-info');
                     div.setAttribute('id', "box-info")
-                
+
                     div.innerHTML += `<p>${item.login}</p>`;
                     div.innerHTML += `<p>${item.created_at}</p>`;
                     div.innerHTML += `<p>${item.content}</p>`;
                     parentDiv.appendChild(div);
-                    
+
                     const div2 = document.createElement('div');
                     div.setAttribute('class', 'boxButton');
                     div2.innerHTML += `<button class="actionDelete" type="submit" id="actionDelete" value="${item.id_message}"/>Delete</button>`;
@@ -59,35 +60,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
 
 
-            var button = document.getElementsByClassName("actionDelete")
-                for (let i = 0; i < button.length; i++){
-                        const element = button[i];
-                        element.addEventListener("click", () => {
-                            
-                            console.log("element",element)
-                            const id_message = element.value
-                            console.log(id_message);
-                            fetch(API + `/chat/delete/${id_message}`, {
-                                method: 'DELETE',
-                                mode: 'cors',
-                                headers: {
-                                    'token1': token,
-                                    'refreshToken': refresh,
-                                    'Content-Type': 'application/json',
-                                    'Access-Control-Allow-Origin': '*',
-                                    'Access-Control-Allow-Credentials': 'true'
-                                },})
-                                .then(response => response.json())
-                                .then(data => {
+                var button = document.getElementsByClassName("actionDelete")
+                for (let i = 0; i < button.length; i++) {
+                    const element = button[i];
+                    element.addEventListener("click", () => {
 
-                                    console.log(data)
-                                    console.log("element into then", element)
-                                    element.parentNode.parentNode.remove()
-                                    alert(data.message)
-                                })                 
+                        console.log("element", element)
+                        const id_message = element.value
+                        console.log(id_message);
+                        const data = JSON.stringify({ id_role_admin: id_admin.get() })
+
+                        fetch(API + `/admin/chat/${idRoom}/${id_message}`, {
+                            method: 'DELETE',
+                            mode: 'cors',
+                            body: data,
+                            headers: {
+                                'token1': token,
+                                'refreshToken': refresh,
+                                'Content-Type': 'application/json',
+                                'Access-Control-Allow-Origin': '*',
+                                'Access-Control-Allow-Credentials': 'true'
+                            },
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+
+                                console.log(data)
+                                console.log("element into then", element)
+                                element.parentNode.parentNode.remove()
+                                alert(data.message)
                             })
-                        }
-        }
+                    })
+                }
+            }
 
             paginationData(currentPage);
 
@@ -127,5 +132,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         })
-    })
+})
 
