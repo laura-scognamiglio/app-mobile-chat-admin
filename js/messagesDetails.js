@@ -26,18 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
 
-            // console.log('messages(id, content, login, created-at)  ', data);
-            // console.log('id_message', Object.keys(data))
-            // console.log('Object.values(data)',)
-            // for (let i = 0; i < data.length; i++) {
-
-            //     const myValue = data[i].id_message;
-            //     console.log(myValue)
-            // }
-    
-
-
-            const itemsPerPage = 5;
+          const itemsPerPage = 5;
             let currentPage = 1;
             const pages = Math.ceil(data.length / itemsPerPage);
 
@@ -49,34 +38,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 let paginatedData = data.slice(start, end);
 
                 paginatedData.forEach(item => {
-                    // console.log(item);
-                    // for (let i = 0; i < item.length; i++) {
+                
+                    const parentDiv = document.createElement('div');
+                    parentDiv.setAttribute('class', 'parent-box');
 
-                    //     const id_message = item[i].id_message;
-                    //     const content = item [i].content;
-                    //     console.log('id', id_message)
-                    //     console.log('content',content)
-                    // }
-                    
                     const div = document.createElement('div');
                     div.setAttribute('class', 'box-info');
+                    div.setAttribute('id', "box-info")
+                
                     div.innerHTML += `<p>${item.login}</p>`;
                     div.innerHTML += `<p>${item.created_at}</p>`;
                     div.innerHTML += `<p>${item.content}</p>`;
-                    container.appendChild(div);
-
+                    parentDiv.appendChild(div);
+                    
                     const div2 = document.createElement('div');
-                    div.setAttribute('class', 'box-button');
+                    div.setAttribute('class', 'boxButton');
                     div2.innerHTML += `<button class="actionDelete" type="submit" id="actionDelete" value="${item.id_message}"/>Delete</button>`;
-                    container.appendChild(div2);
-             
+                    parentDiv.appendChild(div2);
+                    container.appendChild(parentDiv);
                 })
 
-                var button = document.getElementsByClassName("actionDelete")
+
+            var button = document.getElementsByClassName("actionDelete")
                 for (let i = 0; i < button.length; i++){
                         const element = button[i];
                         element.addEventListener("click", () => {
                             
+                            console.log("element",element)
                             const id_message = element.value
                             console.log(id_message);
                             fetch(API + `/chat/delete/${id_message}`, {
@@ -92,15 +80,15 @@ document.addEventListener("DOMContentLoaded", () => {
                                 .then(response => response.json())
                                 .then(data => {
 
-                                    window.alert("the message was deleted!");
+                                    console.log(data)
+                                    console.log("element into then", element)
+                                    element.parentNode.parentNode.remove()
+                                    alert(data.message)
+                                })                 
+                            })
+                        }
+        }
 
-                                        console.log(data)
-                                })
-                                // .catch(error => {throw(error)});
-                        })
-                }
-            }
-            //pagination
             paginationData(currentPage);
 
             document.querySelector("#next").addEventListener("click", () => {
@@ -138,13 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
             }
-
-
-
-
         })
-
-
-
-})
+    })
 
