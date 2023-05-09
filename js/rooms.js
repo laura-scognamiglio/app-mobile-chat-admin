@@ -3,8 +3,40 @@ import Api from "./api.js"
 import { Token, refreshToken, id_admin } from "./token.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    
-    //console.log("rooms.js");
+
+	const  createButton = document.getElementById("create-button")
+	createButton.addEventListener("click",() => {
+		const newRoomName = document.getElementById("create-room-name").value
+		const data = JSON.stringify({
+			name: newRoomName,
+			id_role_admin: id_admin.get()
+		});
+
+		const token1Value = Token.get();
+		const refreshTokenValue = refreshToken.get()
+
+		fetch(API + `/admin/add-room`, {
+
+			method: 'POST',
+			mode: 'cors',
+			body: data,
+			headers: {
+				'token1': token1Value,
+				'refreshToken': refreshTokenValue,
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Credentials': 'true'
+			},
+		})
+		.then(response => response.json())
+		.then(data => {
+			alert("Room "+newRoomName+" has been created")
+			window.location.href = front + "/app-mobile-chat-admin/admin/adminRoom.php";
+
+		})
+		.catch(error => console.error(error));
+
+	})
 
     fetch(API + `/rooms/`, {
 		method: 'GET',

@@ -33,6 +33,10 @@ button[type="submit"]:hover {
   background-color: #6b4ec3;
 }
 
+button.create-button{
+    background-color: #eec81d;
+}
+
 h1 {
   text-align: center;
   color: #9471fb;
@@ -46,6 +50,15 @@ h1 {
   flex-direction: column;
   padding-top: 2.5%;
   margin: 2%;
+}
+
+.create-block{
+  width: 40%;
+  margin-left: 300px;
+  padding-bottom: 50px;
+  margin-bottom: 100px;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
 nav {
