@@ -25,6 +25,10 @@ button[type="submit"],
   cursor: pointer;
 }
 
+button.delete-button {
+  background-color: rgba(186, 19, 0, 0.84);
+}
+
 button[type="submit"]:hover {
   background-color: #6b4ec3;
 }

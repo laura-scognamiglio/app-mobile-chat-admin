@@ -31,14 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
 					div.innerHTML += ` <label for="update-roomName" class="form-label">Room Name</label>`
 					div.innerHTML += `<input class="update-roomName" type="text" id="update-roomName-${item.id}" value='${item.name}' />`;
 					div.innerHTML += `<button type="submit" class="update-button-roomName btn btn-primary mb-3" id="update-button-roomName-${item.id}" value="${item.id}">Update room name</button>`;
+					div.innerHTML += `<button type="submit" class="delete-button" id="delete-button-roomName-${item.id}" value="${item.id}">Delete room</button>`;
 					container.appendChild(div);
                 })
 
+				//*** EDITION D'UNE ROOM ***
 				//boucle sur les elements "button" pour leur ajouter un eventListener "click"
-				var inputUpdate = document.getElementsByClassName("update-button-roomName")
-				for (let i = 0; i < inputUpdate.length; i++){
+				const updateButtons = document.getElementsByClassName("update-button-roomName")
+				for (let i = 0; i < updateButtons.length; i++){
 
-					const element = inputUpdate[i];
+					const element = updateButtons[i];
 
 					element.addEventListener("click", () => {
 
@@ -73,6 +75,56 @@ document.addEventListener("DOMContentLoaded", () => {
 					})
 
 				}
+
+				// *** SUPPRESSION D'UNE ROOM ***
+				//boucle sur les elements "button" pour leur ajouter un eventListener "click"
+				const deleteButtons = document.getElementsByClassName("delete-button")
+				for (let i = 0; i < deleteButtons.length; i++){
+
+					const element = deleteButtons[i];
+
+					element.addEventListener("click", () => {
+
+
+
+						const idRoom = element.value
+						const deleteRoomName = document.getElementById("update-roomName-"+idRoom).value
+
+						if (confirm("Vous êtes sur le point de supprimer la room '"+deleteRoomName+"'")) {
+							const data = JSON.stringify({
+								id_role_admin: id_admin.get()
+							});
+
+							const token1Value = Token.get();
+							const refreshTokenValue = refreshToken.get()
+
+							fetch(API + `/admin/rooms/${idRoom}`, {
+
+								method: 'DELETE',
+								mode: 'cors',
+								body: data,
+								headers: {
+									'token1': token1Value,
+									'refreshToken': refreshTokenValue,
+									'Content-Type': 'application/json',
+									'Access-Control-Allow-Origin': '*',
+									'Access-Control-Allow-Credentials': 'true'
+								},
+							})
+								.then(response => response.json())
+								.then(data => {
+									console.log('Remove element :',element.parentNode);
+									element.parentNode.remove()
+									alert(data.message)
+								})
+								.catch(error => console.error(error));
+						}
+
+
+					})
+
+				}
+
             }
             //pagination
             paginationData(currentPage);
