@@ -19,12 +19,10 @@
 <body>
     <?php include('../navbar.php'); ?>
 
-<h1>Messages By Rooms</h1>
+<h1>Choose a room to delete messages</h1>
 
 <div class="container-button-delete">
 
-
-    <button id="delete-all" class="delete-all">Delete all message from general chat room</button> 
 
 </div>
 

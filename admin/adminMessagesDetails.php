@@ -13,7 +13,7 @@
     <script type="module" src="../js/messagesDetails.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
-    <title>ADMIN MESSAGES DETAILS</title>
+    <title>MESSAGES DETAILS</title>
 </head>
 
 <body>  

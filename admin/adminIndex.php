@@ -11,9 +11,6 @@
 
 <body>
     <?php include('../navbar.php'); ?>
-    <a href="./adminUser.php">Users</a>
-    <a href="./adminMessageGeneral.php">Message</a>
-    <a href="">Room</a>
 </body>
 
 </html>

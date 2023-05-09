@@ -18,7 +18,6 @@
 
 <body>
     <?php include('../navbar.php'); ?>
-    <button id="logout-button">logout</button>
     <div class="container" id="container">
 
         <div id="form-container"></div>

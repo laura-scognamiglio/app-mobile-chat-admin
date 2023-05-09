@@ -12,3 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
 })
+
+// index il marche pas 
+// sur room il marche pas 
+// 
