@@ -2,7 +2,7 @@ import { API, front } from "./constant.js"
 import { Token, refreshToken } from "./token.js";
 
 export default class Api{
-    constructor() {
+    constructor() {     
         this.route = API;
         this.call = this.call.bind(this);
     }

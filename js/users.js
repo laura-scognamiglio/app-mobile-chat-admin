@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					const div = document.createElement('div');
 					div.setAttribute('class', 'item-class');
 					div.innerHTML += ` <label for="update-login" class="form-label">Login user</label>`
-					div.innerHTML += `<input class="update-login" type="text" id="update-login" value='${item.login}' />`;
+					div.innerHTML += `<input class="update-login" type="text" id="update-login" data-index="${item.id}" value='${item.login}' />`;
 					div.innerHTML += `<button type="submit" class="update-button-login btn btn-primary mb-3" id="update-button-login" value="${item.id}">Update login</button>`;
 					div.innerHTML += ` <label for="update-role" class="form-label">Role user / admin</label>`
 					div.innerHTML += `<input class="update-role" type="text" id="update-role" data-index="${item.id}" value='${item.id_role}' />`;
@@ -41,27 +41,39 @@ document.addEventListener("DOMContentLoaded", () => {
 					container.appendChild(div);
 
 					var inputUpdate = document.getElementsByClassName("update-button-login")
+					var loginS;
 					for (let i = 0; i < inputUpdate.length; i++) {
 						//Boucle les boutons avec l'id de l'utilisateurs en value
 						const element = inputUpdate[i];
-
+						console.log(element)
 						element.addEventListener("click", () => {
 							//Event update login users
-							const loginUpdate = document.getElementById("update-login").value
+							let loginUpdate = document.getElementsByClassName("update-login")
+							loginUpdate = [...loginUpdate]
 							const idUser = element.value
+							loginUpdate.forEach(element => {
+								if(element.dataset.index === idUser) {
+									loginS = element.value
+								}
+							});
+
 							const data = {
-								login: loginUpdate,
+								id_role_admin: id_admin.get(),
+								login: loginS,
 								id: idUser
 							};
 
-							fetch(API + `/admin/users/${idUser}/update`, {
+							const bodyData = JSON.stringify(data)
+							const token = Token.get();
+							const refresh = refreshToken.get()
 
+							fetch(API + `/admin/users/${idUser}/update`, {
 									method: 'PATCH',
 									mode: 'cors',
-									body: JSON.stringify(data),
+									body: bodyData,
 									headers: {
-										'token': Token.get(),
-										'refreshToken': refreshToken.get(),
+										'token1': token,
+										'refreshtoken': refresh,
 										'Content-Type': 'application/json',
 										'Access-Control-Allow-Origin': '*',
 										'Access-Control-Allow-Credentials': 'true'
